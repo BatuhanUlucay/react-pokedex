@@ -4,7 +4,7 @@ import Footer from "./components/layout/Footer";
 function App() {
   return (
     <>
-    <Navbar />
+      <Navbar />
       <h1 className="text-3xl font-bold underline">Hello world!</h1>
       <Footer />
     </>
