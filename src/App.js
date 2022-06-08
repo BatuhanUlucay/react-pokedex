@@ -1,11 +1,15 @@
 import Navbar from "./components/layout/Navbar";
+import Home from "./pages/Home";
 import Footer from "./components/layout/Footer";
 
 function App() {
   return (
     <>
       <Navbar />
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <main className="h-screen">
+        <Home />
+      </main>
+
       <Footer />
     </>
   );
