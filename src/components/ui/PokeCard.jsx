@@ -26,7 +26,7 @@ function PokeCard({id, name, type}) {
       </figure>
 
       <div className="card-body">
-        <h2 className="card-title">{name}</h2>
+        <h2 className="card-title justify-center">{name.replace(/^./, name[0].toUpperCase())}</h2>
         <div className="card-actions justify-center">
           <button className="btn btn-primary">{type}</button>
         </div>

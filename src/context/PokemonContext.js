@@ -20,7 +20,6 @@ export const PokemonProvider = ({ children }) => {
       });
 
     getPokemons(response.data.results);
-    console.log(response.data.results);
   };
 
   const getPokemons = async (result) => {
@@ -32,6 +31,7 @@ export const PokemonProvider = ({ children }) => {
           .get(`https://pokeapi.co/api/v2/pokemon/${pokemonItem.name}`)
           .then((result) => {
             pokemonArr.push(result.data);
+            //setPokemons([...pokemons, result.data]);
           });
       })
     );
@@ -40,6 +40,7 @@ export const PokemonProvider = ({ children }) => {
 
     setPokemons(pokemonArr);
     setLoading(false);
+    console.log(pokemons);
   };
 
   return (
