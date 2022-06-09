@@ -3,24 +3,22 @@ import PokeCard from "../ui/PokeCard";
 import { useState, useEffect, useContext } from "react";
 import PokemonContext from "../../context/PokemonContext";
 
-
-
 function PokemonList() {
-  const pokemonPerPage = 20;
-
-  const [pokemons, setPokemons] = useState([]);
-
-  const {getAllPokemons} = useContext(PokemonContext);
-  
+  const { getAllPokemons, loading, pokemons } = useContext(PokemonContext);
 
   useEffect(() => {
-    getAllPokemons(0,151);
+    getAllPokemons(0, 809);
+    console.log(pokemons)
   }, []);
 
+  if(loading){
+    return <h1>Loading...</h1>
+  }
+
   return (
-    <div className="grid grid-cols-1 gap-8 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2">
+    <div className="grid grid-cols-1 gap-8 xl:grid-cols-5 lg:grid-cols-3 md:grid-cols-2">
       {pokemons.map((pokemon) => {
-        return <PokeCard name={"pokemon.name"} />;
+        return <PokeCard name={pokemon.name} type={"a"} key={pokemon.id} id={pokemon.id}/>
       })}
     </div>
   );
