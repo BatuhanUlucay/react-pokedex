@@ -1,5 +1,4 @@
 import React from "react";
-import PokemonContext from "../../context/PokemonContext";
 import PokemonType from "../pokemon/PokemonType";
 import Card from "./Card";
 
