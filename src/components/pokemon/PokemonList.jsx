@@ -20,7 +20,7 @@ function PokemonList() {
         return (
           <PokeCard
             name={pokemon.name}
-            type={"a"}
+            types={pokemon.types}
             key={pokemon.id}
             id={pokemon.id}
           />

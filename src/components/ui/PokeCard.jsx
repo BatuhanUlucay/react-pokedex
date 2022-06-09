@@ -1,8 +1,9 @@
 import React from "react";
 import PokemonContext from "../../context/PokemonContext";
+import PokemonType from "../pokemon/PokemonType";
 import Card from "./Card";
 
-function PokeCard({id, name, type}) {
+function PokeCard({id, name, types}) {
 
     const numberPadding = (id) => {
         if(id < 10){
@@ -28,7 +29,7 @@ function PokeCard({id, name, type}) {
       <div className="card-body">
         <h2 className="card-title justify-center">{name.replace(/^./, name[0].toUpperCase())}</h2>
         <div className="card-actions justify-center">
-          <button className="btn btn-primary">{type}</button>
+          <PokemonType types={types}/>
         </div>
       </div>
     </Card>

@@ -26,12 +26,11 @@ export const PokemonProvider = ({ children }) => {
     const pokemonArr = [];
 
     await Promise.all(
-      result.map((pokemonItem) => {
+      result.map( async (pokemonItem) => {
         return axios
           .get(`https://pokeapi.co/api/v2/pokemon/${pokemonItem.name}`)
           .then((result) => {
             pokemonArr.push(result.data);
-            //setPokemons([...pokemons, result.data]);
           });
       })
     );
@@ -40,7 +39,7 @@ export const PokemonProvider = ({ children }) => {
 
     setPokemons(pokemonArr);
     setLoading(false);
-    console.log(pokemons);
+    console.log(pokemonArr);
   };
 
   return (
