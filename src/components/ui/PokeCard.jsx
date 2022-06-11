@@ -17,7 +17,7 @@ function PokeCard({id, name, types}) {
     }
 
   return (
-    <Card className="w-72 bg-base-100 shadow-xl">
+    <Card className="w-72 bg-base-100 shadow-xl border-2 border-solid">
       <figure>
         <img
           src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${numberPadding(id)}.png`}

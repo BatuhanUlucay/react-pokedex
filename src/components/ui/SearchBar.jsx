@@ -2,7 +2,7 @@ import React from "react";
 
 function SearchBar() {
   return (
-    <div className="h-16 flex items-center max-w-md mx-auto shadow rounded">
+    <div className="h-16 flex items-center max-w-md mx-auto shadow rounded my-16">
       <input
         type="text"
         className="bg-gray-200 input-lg text-black flex-grow"

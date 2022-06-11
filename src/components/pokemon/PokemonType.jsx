@@ -21,7 +21,7 @@ import water from "./assets/pokemon_type_icons/water.svg";
 function PokemonType({ types }) {
   return (
     <>
-      <div>
+      {/* <div>
         <div className="badge badge-lg">
           {types.map((type) => {
             switch (type.type.name) {
@@ -69,7 +69,159 @@ function PokemonType({ types }) {
             }
           })}
         </div>
-      </div>
+      </div> */}
+
+      {types.map((type) => {
+        switch (type.type.name) {
+          case "bug":
+            return (
+              <div class="avatar type-icon">
+                <div className="w-24 mask mask-hexagon bug">
+                  <img src={bug} alt="type-icon" />
+                </div>
+              </div>
+            );
+          case "dark":
+            return (
+              <div class="avatar type-icon">
+                <div className="w-24 mask mask-hexagon dark">
+                  <img src={dark} alt="type-icon" />
+                </div>
+              </div>
+            );
+          case "dragon":
+            return (
+              <div class="avatar type-icon">
+                <div className="w-24 mask mask-hexagon dragon">
+                  <img src={dragon} alt="type-icon" />
+                </div>
+              </div>
+            );
+          case "electric":
+            return (
+              <div class="avatar type-icon">
+                <div className="w-24 mask mask-hexagon electric">
+                  <img src={electric} alt="type-icon" />
+                </div>
+              </div>
+            );
+          case "fairy":
+            return (
+              <div class="avatar type-icon">
+                <div className="w-24 mask mask-hexagon fairy">
+                  <img src={fairy} alt="type-icon" />
+                </div>
+              </div>
+            );
+          case "fighting":
+            return (
+              <div class="avatar type-icon">
+                <div className="w-24 mask mask-hexagon fighting">
+                  <img src={fighting} alt="type-icon" />
+                </div>
+              </div>
+            );
+          case "fire":
+            return (
+              <div class="avatar type-icon">
+                <div className="w-24 mask mask-hexagon fire">
+                  <img src={fire} alt="type-icon" />
+                </div>
+              </div>
+            );
+          case "flying":
+            return (
+              <div class="avatar type-icon">
+                <div className="w-24 mask mask-hexagon flying">
+                  <img src={flying} alt="type-icon" />
+                </div>
+              </div>
+            );
+          case "ghost":
+            return (
+              <div class="avatar type-icon">
+                <div className="w-24 mask mask-hexagon ghost">
+                  <img src={ghost} alt="type-icon" />
+                </div>
+              </div>
+            );
+          case "grass":
+            return (
+              <div class="avatar type-icon">
+                <div className="w-24 mask mask-hexagon grass">
+                  <img src={grass} alt="type-icon" />
+                </div>
+              </div>
+            );
+          case "ground":
+            return (
+              <div class="avatar type-icon">
+                <div className="w-24 mask mask-hexagon ground">
+                  <img src={ground} alt="type-icon" />
+                </div>
+              </div>
+            );
+          case "ice":
+            return (
+              <div class="avatar type-icon">
+                <div className="w-24 mask mask-hexagon ice">
+                  <img src={ice} alt="type-icon" />
+                </div>
+              </div>
+            );
+          case "normal":
+            return (
+              <div class="avatar type-icon">
+                <div className="w-24 mask mask-hexagon normal">
+                  <img src={normal} alt="type-icon" />
+                </div>
+              </div>
+            );
+          case "poison":
+            return (
+              <div class="avatar type-icon">
+                <div className="w-24 mask mask-hexagon poison">
+                  <img src={poison} alt="type-icon" />
+                </div>
+              </div>
+            );
+          case "psychic":
+            return (
+              <div class="avatar type-icon">
+                <div className="w-24 mask mask-hexagon psychic">
+                  <img src={psychic} alt="type-icon" />
+                </div>
+              </div>
+            );
+          case "rock":
+            return (
+              <div class="avatar type-icon">
+                <div className="w-24 mask mask-hexagon rock">
+                  <img src={rock} alt="type-icon" />
+                </div>
+              </div>
+            );
+          case "steel":
+            return (
+              <div class="avatar type-icon">
+                <div className="w-24 mask mask-hexagon steel">
+                  <img src={steel} alt="type-icon" />
+                </div>
+              </div>
+            );
+          case "water":
+            return (
+              <div class="avatar type-icon">
+                <div className="w-24 mask mask-hexagon water">
+                  <img src={water} alt="type-icon" />
+                </div>
+              </div>
+            );
+
+          default:
+            return null;
+        }
+      })}
     </>
   );
 }

@@ -4,9 +4,9 @@
 
 .type-icon {
     border-radius: 100%;
-    height: 5rem;
-    width: 5rem;
-    margin: 0;
+    height: 4rem;
+    width: 4rem;
+    margin:auto;
     transition: 200ms all;
 }
 
@@ -17,9 +17,9 @@
 }
 
 .type-icon img {
-    height: 10%;
-    width: 10%;
-    margin: 1%;
+    height: 60%;
+    width: 60%;
+    margin: 20%;
 }
 
 .bug {
