@@ -75,7 +75,7 @@ function PokemonType({ types }) {
         switch (type.type.name) {
           case "bug":
             return (
-              <div class="avatar type-icon">
+              <div class="avatar type-icon" title={type.type.name}>
                 <div className="w-24 mask mask-hexagon bug">
                   <img src={bug} alt="type-icon" />
                 </div>
@@ -83,7 +83,7 @@ function PokemonType({ types }) {
             );
           case "dark":
             return (
-              <div class="avatar type-icon">
+              <div class="avatar type-icon" title={type.type.name}>
                 <div className="w-24 mask mask-hexagon dark">
                   <img src={dark} alt="type-icon" />
                 </div>
@@ -91,7 +91,7 @@ function PokemonType({ types }) {
             );
           case "dragon":
             return (
-              <div class="avatar type-icon">
+              <div class="avatar type-icon" title={type.type.name}>
                 <div className="w-24 mask mask-hexagon dragon">
                   <img src={dragon} alt="type-icon" />
                 </div>
@@ -99,7 +99,7 @@ function PokemonType({ types }) {
             );
           case "electric":
             return (
-              <div class="avatar type-icon">
+              <div class="avatar type-icon" title={type.type.name}>
                 <div className="w-24 mask mask-hexagon electric">
                   <img src={electric} alt="type-icon" />
                 </div>
@@ -107,7 +107,7 @@ function PokemonType({ types }) {
             );
           case "fairy":
             return (
-              <div class="avatar type-icon">
+              <div class="avatar type-icon" title={type.type.name}>
                 <div className="w-24 mask mask-hexagon fairy">
                   <img src={fairy} alt="type-icon" />
                 </div>
@@ -115,7 +115,7 @@ function PokemonType({ types }) {
             );
           case "fighting":
             return (
-              <div class="avatar type-icon">
+              <div class="avatar type-icon" title={type.type.name}>
                 <div className="w-24 mask mask-hexagon fighting">
                   <img src={fighting} alt="type-icon" />
                 </div>
@@ -123,7 +123,7 @@ function PokemonType({ types }) {
             );
           case "fire":
             return (
-              <div class="avatar type-icon">
+              <div class="avatar type-icon" title={type.type.name}>
                 <div className="w-24 mask mask-hexagon fire">
                   <img src={fire} alt="type-icon" />
                 </div>
@@ -131,7 +131,7 @@ function PokemonType({ types }) {
             );
           case "flying":
             return (
-              <div class="avatar type-icon">
+              <div class="avatar type-icon" title={type.type.name}>
                 <div className="w-24 mask mask-hexagon flying">
                   <img src={flying} alt="type-icon" />
                 </div>
@@ -139,7 +139,7 @@ function PokemonType({ types }) {
             );
           case "ghost":
             return (
-              <div class="avatar type-icon">
+              <div class="avatar type-icon" title={type.type.name}>
                 <div className="w-24 mask mask-hexagon ghost">
                   <img src={ghost} alt="type-icon" />
                 </div>
@@ -147,7 +147,7 @@ function PokemonType({ types }) {
             );
           case "grass":
             return (
-              <div class="avatar type-icon">
+              <div class="avatar type-icon" title={type.type.name}>
                 <div className="w-24 mask mask-hexagon grass">
                   <img src={grass} alt="type-icon" />
                 </div>
@@ -155,7 +155,7 @@ function PokemonType({ types }) {
             );
           case "ground":
             return (
-              <div class="avatar type-icon">
+              <div class="avatar type-icon" title={type.type.name}>
                 <div className="w-24 mask mask-hexagon ground">
                   <img src={ground} alt="type-icon" />
                 </div>
@@ -163,7 +163,7 @@ function PokemonType({ types }) {
             );
           case "ice":
             return (
-              <div class="avatar type-icon">
+              <div class="avatar type-icon" title={type.type.name}>
                 <div className="w-24 mask mask-hexagon ice">
                   <img src={ice} alt="type-icon" />
                 </div>
@@ -171,7 +171,7 @@ function PokemonType({ types }) {
             );
           case "normal":
             return (
-              <div class="avatar type-icon">
+              <div class="avatar type-icon" title={type.type.name}>
                 <div className="w-24 mask mask-hexagon normal">
                   <img src={normal} alt="type-icon" />
                 </div>
@@ -179,7 +179,7 @@ function PokemonType({ types }) {
             );
           case "poison":
             return (
-              <div class="avatar type-icon">
+              <div class="avatar type-icon" title={type.type.name}>
                 <div className="w-24 mask mask-hexagon poison">
                   <img src={poison} alt="type-icon" />
                 </div>
@@ -187,7 +187,7 @@ function PokemonType({ types }) {
             );
           case "psychic":
             return (
-              <div class="avatar type-icon">
+              <div class="avatar type-icon" title={type.type.name}>
                 <div className="w-24 mask mask-hexagon psychic">
                   <img src={psychic} alt="type-icon" />
                 </div>
@@ -195,7 +195,7 @@ function PokemonType({ types }) {
             );
           case "rock":
             return (
-              <div class="avatar type-icon">
+              <div class="avatar type-icon" title={type.type.name}>
                 <div className="w-24 mask mask-hexagon rock">
                   <img src={rock} alt="type-icon" />
                 </div>
@@ -203,7 +203,7 @@ function PokemonType({ types }) {
             );
           case "steel":
             return (
-              <div class="avatar type-icon">
+              <div class="avatar type-icon" title={type.type.name}>
                 <div className="w-24 mask mask-hexagon steel">
                   <img src={steel} alt="type-icon" />
                 </div>
@@ -211,7 +211,7 @@ function PokemonType({ types }) {
             );
           case "water":
             return (
-              <div class="avatar type-icon">
+              <div class="avatar type-icon" title={type.type.name}>
                 <div className="w-24 mask mask-hexagon water">
                   <img src={water} alt="type-icon" />
                 </div>
