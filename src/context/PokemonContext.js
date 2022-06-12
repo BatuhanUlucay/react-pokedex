@@ -12,6 +12,8 @@ export const PokemonProvider = ({ children }) => {
   const [pokemons, setPokemons] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  const [searchText, setSearchText] = useState("");
+
   const getAllPokemons = async (offset, limit) => {
     const response = await pokeapi
       .get(`pokemon?limit=${limit}&offset=${offset}`)
@@ -26,7 +28,7 @@ export const PokemonProvider = ({ children }) => {
     const pokemonArr = [];
 
     await Promise.all(
-      result.map( async (pokemonItem) => {
+      result.map(async (pokemonItem) => {
         return axios
           .get(`https://pokeapi.co/api/v2/pokemon/${pokemonItem.name}`)
           .then((result) => {
@@ -43,7 +45,15 @@ export const PokemonProvider = ({ children }) => {
   };
 
   return (
-    <PokemonContext.Provider value={{ getAllPokemons, loading, pokemons }}>
+    <PokemonContext.Provider
+      value={{
+        getAllPokemons,
+        setSearchText,
+        loading,
+        pokemons,
+        searchText,
+      }}
+    >
       {children}
     </PokemonContext.Provider>
   );

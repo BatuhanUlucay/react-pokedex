@@ -1,14 +1,24 @@
 import React from "react";
 import PokeCard from "../ui/PokeCard";
-import { useEffect, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import PokemonContext from "../../context/PokemonContext";
 
 function PokemonList() {
-  const { getAllPokemons, loading, pokemons } = useContext(PokemonContext);
+  const { getAllPokemons, loading, pokemons, searchText } = useContext(PokemonContext);
+  const [searchedPokemons, setSearchedPokemons] = useState();
 
   useEffect(() => {
-    getAllPokemons(0, 151);
+    getAllPokemons(0, 898);
   }, []);
+
+  useEffect(() => {
+    const searchResult = pokemons.filter((pokemon) => {
+      return pokemon.name.includes(searchText);
+    });
+
+    setSearchedPokemons(searchResult);
+
+  }, [searchText, pokemons]);
 
   if (loading) {
     return <h1>Loading...</h1>;
@@ -16,7 +26,7 @@ function PokemonList() {
 
   return (
     <div className="grid grid-cols-1 gap-8 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-      {pokemons.map((pokemon) => {
+      {searchedPokemons.map((pokemon) => {
         return (
           <PokeCard
             name={pokemon.name}
