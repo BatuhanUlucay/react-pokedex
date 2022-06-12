@@ -21,56 +21,6 @@ import water from "./assets/pokemon_type_icons/water.svg";
 function PokemonType({ types }) {
   return (
     <>
-      {/* <div>
-        <div className="badge badge-lg">
-          {types.map((type) => {
-            switch (type.type.name) {
-              case "bug":
-                return (
-                  <img className="type-icon bug" src={bug} alt="type-icon" />
-                );
-              case "dark":
-                return <img src={dark} alt="type-icon" />;
-              case "dragon":
-                return <img src={dragon} alt="type-icon" />;
-              case "electric":
-                return <img src={electric} alt="type-icon" />;
-              case "fairy":
-                return <img src={fairy} alt="type-icon" />;
-              case "fighting":
-                return <img src={fighting} alt="type-icon" />;
-              case "fire":
-                return <img src={fire} alt="type-icon" />;
-              case "flying":
-                return <img src={flying} alt="type-icon" />;
-              case "ghost":
-                return <img src={ghost} alt="type-icon" />;
-              case "grass":
-                return <img src={grass} alt="type-icon" />;
-              case "ground":
-                return <img src={ground} alt="type-icon" />;
-              case "ice":
-                return <img src={ice} alt="type-icon" />;
-              case "normal":
-                return <img src={normal} alt="type-icon" />;
-              case "poison":
-                return <img src={poison} alt="type-icon" />;
-              case "psychic":
-                return <img src={psychic} alt="type-icon" />;
-              case "rock":
-                return <img src={rock} alt="type-icon" />;
-              case "steel":
-                return <img src={steel} alt="type-icon" />;
-              case "water":
-                return <img src={water} alt="type-icon" />;
-
-              default:
-                return null;
-            }
-          })}
-        </div>
-      </div> */}
-
       {types.map((type) => {
         switch (type.type.name) {
           case "bug":
