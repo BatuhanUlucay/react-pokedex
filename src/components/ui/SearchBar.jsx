@@ -1,23 +1,34 @@
 import React from "react";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import PokemonContext from "../../context/PokemonContext";
 
 function SearchBar() {
+  const { pokemonsFiltered, setPokemonsSearched } = useContext(PokemonContext);
+  const [text, setText] = useState();
 
-  const { setSearchText} = useContext(PokemonContext);
+  useEffect(() => {
+    setPokemonsSearched(pokemonsFiltered);
+  }, [pokemonsFiltered]);
+
+  useEffect(() => {
+    const searchResult = pokemonsFiltered.filter((pokemon) => {
+      return pokemon.name.includes(text);
+    });
+
+    setPokemonsSearched(searchResult);
+  }, [text]);
 
   const handleChange = (event) => {
-    setSearchText(event.target.value);
-  }
+    setText(event.target.value);
+  };
 
   return (
-    
-      <input
-        type="text"
-        className="bg-gray-200 input-lg text-black flex-grow rounded-lg shadow"
-        placeholder="Search"
-        onChange={handleChange}
-      ></input>
+    <input
+      type="text"
+      className="bg-gray-200 input-lg text-black flex-grow rounded-lg shadow"
+      placeholder="Search"
+      onChange={handleChange}
+    ></input>
   );
 }
 

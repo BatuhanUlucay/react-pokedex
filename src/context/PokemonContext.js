@@ -10,9 +10,9 @@ const PokemonContext = createContext();
 
 export const PokemonProvider = ({ children }) => {
   const [pokemons, setPokemons] = useState([]);
+  const [pokemonsFiltered, setPokemonsFiltered] = useState([]);
+  const [pokemonsSearched, setPokemonsSearched] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  const [searchText, setSearchText] = useState("");
 
   const getAllPokemons = async (offset, limit) => {
     const response = await pokeapi
@@ -48,10 +48,12 @@ export const PokemonProvider = ({ children }) => {
     <PokemonContext.Provider
       value={{
         getAllPokemons,
-        setSearchText,
+        setPokemonsFiltered,
+        setPokemonsSearched,
+        pokemonsSearched,
+        pokemonsFiltered,
         loading,
         pokemons,
-        searchText,
       }}
     >
       {children}
