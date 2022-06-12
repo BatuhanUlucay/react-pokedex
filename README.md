@@ -1,3 +1,12 @@
+TODO: write a useFetch instead of doing it in a context
+pokemon pages
+go to top button
+about page
+do some styling
+icons hover
+write a real readme 
+deploy
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
