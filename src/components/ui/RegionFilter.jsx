@@ -7,7 +7,7 @@ function RegionFilter() {
 
 useEffect(() => {
     setPokemonsFiltered(pokemons);
-}, [pokemons]);
+}, [pokemons]); // eslint-disable-line
 
 
   const handleChange = (event) => {

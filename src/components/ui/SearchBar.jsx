@@ -8,7 +8,7 @@ function SearchBar() {
 
   useEffect(() => {
     setPokemonsSearched(pokemonsFiltered);
-  }, [pokemonsFiltered]);
+  }, [pokemonsFiltered]); // eslint-disable-line
 
   useEffect(() => {
     const searchResult = pokemonsFiltered.filter((pokemon) => {
@@ -16,7 +16,7 @@ function SearchBar() {
     });
 
     setPokemonsSearched(searchResult);
-  }, [text]);
+  }, [text]); // eslint-disable-line
 
   const handleChange = (event) => {
     setText(event.target.value);

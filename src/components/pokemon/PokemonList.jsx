@@ -9,7 +9,7 @@ function PokemonList() {
 
   useEffect(() => {
     getAllPokemons(0, 898);
-  }, []);
+  }, []); // eslint-disable-line
 
 
 
