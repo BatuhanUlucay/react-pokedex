@@ -1,9 +1,15 @@
 TODO: write a useFetch instead of doing it in a context
-pokemon pages
+pokemon pages:
+    fix stat sizes.
+    add abilities
+    add evolution chains
+    pokemon img
+    pokemon type
+
 go to top button
 about page
 do some styling
-icons hover
+fix icons hover
 write a real readme 
 deploy
 
