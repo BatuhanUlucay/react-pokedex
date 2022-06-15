@@ -57,7 +57,7 @@ function PokemonInfo() {
               <p className="py-6">
                 {pokemonSpecies.flavor_text_entries[7].flavor_text}
               </p>
-              <div className="stats shadow mb-6 ">
+              <div className="stats shadow mb-6 min-w-full">
                 <div className="stat">
                   <div className="stat-figure text-primary">
                     <svg
@@ -127,7 +127,7 @@ function PokemonInfo() {
                   {/* <div class="stat-desc">21% more than last month</div> */}
                 </div>
               </div>
-              <div className="stats shadow">
+              <div className="stats shadow min-w-full">
                 <div className="stat">
                   <div className="stat-figure text-primary">
                     <svg
