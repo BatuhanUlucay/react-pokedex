@@ -1,17 +1,24 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
-import PokemonContext from "../context/PokemonContext";
 import Card from "../components/ui/Card";
 import useFetch from "../hooks/useFetch";
 
+const api_url = "https://pokeapi.co/api/v2";
+
 function PokemonInfo() {
   const params = useParams();
-  const { pokemonDesc, getPokemonDesc } = useContext(PokemonContext);
 
-  const { response: pokemon, loading: pokemonLoading, error: pokemonError } = useFetch(
-    `https://pokeapi.co/api/v2/pokemon/${params.pokemon}`
-  );
+  const {
+    response: pokemon,
+    loading: pokemonLoading,
+    error: pokemonError,
+  } = useFetch(`${api_url}/pokemon/${params.pokemon}`);
+
+  const {
+    response: pokemonSpecies,
+    loading: pokemonSpeciesLoading,
+    error: pokemonSpeciesError,
+  } = useFetch(`${api_url}/pokemon-species/${params.pokemon}`);
 
   const numberPadding = (id) => {
     if (id < 10) {
@@ -23,20 +30,14 @@ function PokemonInfo() {
     }
   };
 
-  useEffect(() => {
-    getPokemonDesc(params.pokemon);
-    console.log("hello");
-    // getPokemonStats(params.pokemon);
-
-    //console.log(pokemonStats);
-
-  }, []);
-
-  if(pokemonLoading){
-    return <h2>Loading...</h2>
-  }
-
-  else if (!pokemonLoading && pokemon){
+  if (pokemonLoading || pokemonSpeciesLoading) {
+    return <h2>Loading...</h2>;
+  } else if (
+    !pokemonLoading &&
+    pokemon &&
+    !pokemonSpeciesLoading &&
+    pokemonSpecies
+  ) {
     return (
       <Card>
         <div className="hero min-h-16 bg-base-200">
@@ -53,7 +54,9 @@ function PokemonInfo() {
                 {params.pokemon.charAt(0).toUpperCase() +
                   params.pokemon.substring(1)}
               </h1>
-              <p className="py-6">{pokemonDesc}</p>
+              <p className="py-6">
+                {pokemonSpecies.flavor_text_entries[7].flavor_text}
+              </p>
               <div className="stats shadow mb-6 ">
                 <div className="stat">
                   <div className="stat-figure text-primary">
@@ -72,10 +75,12 @@ function PokemonInfo() {
                     </svg>
                   </div>
                   <div className="stat-title">HP</div>
-                  <div className="stat-value text-primary">{pokemon.stats[0].base_stat}</div>
+                  <div className="stat-value text-primary">
+                    {pokemon.stats[0].base_stat}
+                  </div>
                   {/* <div class="stat-desc">21% more than last month</div> */}
                 </div>
-  
+
                 <div className="stat">
                   <div className="stat-figure text-primary">
                     <svg
@@ -93,10 +98,12 @@ function PokemonInfo() {
                     </svg>
                   </div>
                   <div className="stat-title">Attack</div>
-                  <div className="stat-value text-primary">{pokemon.stats[1].base_stat}</div>
+                  <div className="stat-value text-primary">
+                    {pokemon.stats[1].base_stat}
+                  </div>
                   {/* <div class="stat-desc">21% more than last month</div> */}
                 </div>
-  
+
                 <div className="stat">
                   <div className="stat-figure text-primary">
                     <svg
@@ -114,7 +121,9 @@ function PokemonInfo() {
                     </svg>
                   </div>
                   <div className="stat-title">Defense</div>
-                  <div className="stat-value text-primary">{pokemon.stats[2].base_stat}</div>
+                  <div className="stat-value text-primary">
+                    {pokemon.stats[2].base_stat}
+                  </div>
                   {/* <div class="stat-desc">21% more than last month</div> */}
                 </div>
               </div>
@@ -136,7 +145,9 @@ function PokemonInfo() {
                     </svg>
                   </div>
                   <div className="stat-title">Special Attack</div>
-                  <div className="stat-value text-primary">{pokemon.stats[3].base_stat}</div>
+                  <div className="stat-value text-primary">
+                    {pokemon.stats[3].base_stat}
+                  </div>
                   {/* <div class="stat-desc">21% more than last month</div> */}
                 </div>
                 <div className="stat">
@@ -156,7 +167,9 @@ function PokemonInfo() {
                     </svg>
                   </div>
                   <div className="stat-title">Special Defense</div>
-                  <div className="stat-value text-primary">{pokemon.stats[4].base_stat}</div>
+                  <div className="stat-value text-primary">
+                    {pokemon.stats[4].base_stat}
+                  </div>
                   {/* <div class="stat-desc">21% more than last month</div> */}
                 </div>
                 <div className="stat">
@@ -176,7 +189,9 @@ function PokemonInfo() {
                     </svg>
                   </div>
                   <div className="stat-title">Speed</div>
-                  <div className="stat-value text-primary">{pokemon.stats[5].base_stat}</div>
+                  <div className="stat-value text-primary">
+                    {pokemon.stats[5].base_stat}
+                  </div>
                   {/* <div class="stat-desc">21% more than last month</div> */}
                 </div>
               </div>
@@ -185,8 +200,9 @@ function PokemonInfo() {
         </div>
       </Card>
     );
+  } else if (pokemonError || pokemonSpeciesError) {
+    return <h2>Oops! Something went wrong I guess !?</h2>;
   }
-  
 }
 
 export default PokemonInfo;
