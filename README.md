@@ -1,11 +1,9 @@
-TODO: write a useFetch instead of doing it in a context
 pokemon pages:
-    fix stat sizes.
-    add abilities
     add evolution chains
-    pokemon img
     pokemon type
+    add abilities
 
+do some optimization if possible
 go to top button
 about page
 do some styling
