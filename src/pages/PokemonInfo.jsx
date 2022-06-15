@@ -7,9 +7,9 @@ import useFetch from "../hooks/useFetch";
 
 function PokemonInfo() {
   const params = useParams();
-  const { pokemonDesc, getPokemonDesc, getPokemonStats, pokemonStats } = useContext(PokemonContext);
+  const { pokemonDesc, getPokemonDesc } = useContext(PokemonContext);
 
-  const { response, loading, error } = useFetch(
+  const { response: pokemon, loading: pokemonLoading, error: pokemonError } = useFetch(
     `https://pokeapi.co/api/v2/pokemon/${params.pokemon}`
   );
 
@@ -32,18 +32,18 @@ function PokemonInfo() {
 
   }, []);
 
-  if(loading){
+  if(pokemonLoading){
     return <h2>Loading...</h2>
   }
 
-  else if (!loading && response){
+  else if (!pokemonLoading && pokemon){
     return (
       <Card>
         <div className="hero min-h-16 bg-base-200">
           <div className="hero-content flex-col lg:flex-row">
             <img
               src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${numberPadding(
-                response.id
+                pokemon.id
               )}.png`}
               className="max-w-sm rounded-lg shadow-2xl"
               alt="pic"
@@ -72,7 +72,7 @@ function PokemonInfo() {
                     </svg>
                   </div>
                   <div className="stat-title">HP</div>
-                  <div className="stat-value text-primary">{response.stats[0].base_stat}</div>
+                  <div className="stat-value text-primary">{pokemon.stats[0].base_stat}</div>
                   {/* <div class="stat-desc">21% more than last month</div> */}
                 </div>
   
@@ -93,7 +93,7 @@ function PokemonInfo() {
                     </svg>
                   </div>
                   <div className="stat-title">Attack</div>
-                  <div className="stat-value text-primary">{response.stats[1].base_stat}</div>
+                  <div className="stat-value text-primary">{pokemon.stats[1].base_stat}</div>
                   {/* <div class="stat-desc">21% more than last month</div> */}
                 </div>
   
@@ -114,7 +114,7 @@ function PokemonInfo() {
                     </svg>
                   </div>
                   <div className="stat-title">Defense</div>
-                  <div className="stat-value text-primary">{response.stats[2].base_stat}</div>
+                  <div className="stat-value text-primary">{pokemon.stats[2].base_stat}</div>
                   {/* <div class="stat-desc">21% more than last month</div> */}
                 </div>
               </div>
@@ -136,7 +136,7 @@ function PokemonInfo() {
                     </svg>
                   </div>
                   <div className="stat-title">Special Attack</div>
-                  <div className="stat-value text-primary">{response.stats[3].base_stat}</div>
+                  <div className="stat-value text-primary">{pokemon.stats[3].base_stat}</div>
                   {/* <div class="stat-desc">21% more than last month</div> */}
                 </div>
                 <div className="stat">
@@ -156,7 +156,7 @@ function PokemonInfo() {
                     </svg>
                   </div>
                   <div className="stat-title">Special Defense</div>
-                  <div className="stat-value text-primary">{response.stats[4].base_stat}</div>
+                  <div className="stat-value text-primary">{pokemon.stats[4].base_stat}</div>
                   {/* <div class="stat-desc">21% more than last month</div> */}
                 </div>
                 <div className="stat">
@@ -176,7 +176,7 @@ function PokemonInfo() {
                     </svg>
                   </div>
                   <div className="stat-title">Speed</div>
-                  <div className="stat-value text-primary">{response.stats[5].base_stat}</div>
+                  <div className="stat-value text-primary">{pokemon.stats[5].base_stat}</div>
                   {/* <div class="stat-desc">21% more than last month</div> */}
                 </div>
               </div>

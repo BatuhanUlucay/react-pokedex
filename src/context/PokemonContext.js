@@ -14,7 +14,6 @@ export const PokemonProvider = ({ children }) => {
   const [pokemonsSearched, setPokemonsSearched] = useState([]);
   const [loading, setLoading] = useState(true);
   const [pokemonDesc, setPokemonDesc] = useState("");
-  const [pokemonStats, setPokemonStats] = useState([]);
 
   const getAllPokemons = async (offset, limit) => {
     const response = await pokeapi
@@ -63,26 +62,6 @@ export const PokemonProvider = ({ children }) => {
     //return response //response.data.flavor_text_entries[7].flavor_text //.data.data.flavor_text_entries[7];
   };
 
-  const getPokemonStats = async (pokemonName) => {
-    console.log("called");
-    const response = await pokeapi
-      .get(`pokemon/${pokemonName}`)
-      .catch((err) => {
-        console.log(err);
-      });
-
-    try {
-      console.log(response.data.stats);
-      setPokemonStats(response.data.stats);
-      console.log(pokemonStats);
-    } catch (e) {
-      console.log(e);
-    }
-    //let desc = await response.data.flavor_text_entries[7].flavor_text;
-    //console.log(response.data.flavor_text_entries[7].flavor_text);
-    //return response //response.data.flavor_text_entries[7].flavor_text //.data.data.flavor_text_entries[7];
-  };
-
   return (
     <PokemonContext.Provider
       value={{
@@ -90,13 +69,11 @@ export const PokemonProvider = ({ children }) => {
         setPokemonsFiltered,
         setPokemonsSearched,
         getPokemonDesc,
-        getPokemonStats,
         pokemonsSearched,
         pokemonsFiltered,
         loading,
         pokemons,
         pokemonDesc,
-        pokemonStats,
       }}
     >
       {children}
