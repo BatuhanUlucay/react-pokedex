@@ -8,9 +8,12 @@ function PokemonList() {
   const { getAllPokemons, loading, pokemonsSearched } = useContext(PokemonContext);
 
   useEffect(() => {
+    // You call this method everyime user comes to this page
+    // Semantically it is not wrong, but you might do some kind of caching. for example: if you have pokemons do not call this method
+    // Calling this method every time also causes the flicker at first.
+    // But we have pokemon at hand, we can show them.
     getAllPokemons(0, 898);
   }, []); // eslint-disable-line
-
 
 
   if (loading) {

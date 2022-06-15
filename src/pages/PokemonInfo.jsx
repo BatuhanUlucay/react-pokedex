@@ -5,6 +5,8 @@ import useFetch from "../hooks/useFetch";
 
 const api_url = "https://pokeapi.co/api/v2";
 
+// You might want to add a 'go back' button that directs you to the home page
+
 function PokemonInfo() {
   const params = useParams();
 

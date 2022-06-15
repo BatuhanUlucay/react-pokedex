@@ -11,6 +11,11 @@ useEffect(() => {
 
 
   const handleChange = (event) => {
+    // setFilter(event.target.value || "All Pokemons")
+    // I think you should not put the filtering logic inside a component.
+    // It is strictly tied to the context.
+    // That way you can persist the filter state in the dropdown. Now it forgets what you selected if you go to detail, and back to the home page.
+    // Of course it requires a corresponding change in the context as well
 
     switch (event.target.value) {
       case "All pokemons":
@@ -84,6 +89,7 @@ useEffect(() => {
       <select
         className="select select-bordered select-lg w-full max-w-xs ml-16"
         onChange={handleChange}
+        // value={filter} filter should come from the context
       >
         <option>All Pokemons</option>
         <option>Kanto</option>
