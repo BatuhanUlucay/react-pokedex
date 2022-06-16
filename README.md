@@ -1,9 +1,7 @@
 pokemon pages:
     add evolution chains
     pokemon type
-    add abilities
 
-do some optimization if possible
 go to top button
 about page
 do some styling
