@@ -1,59 +1,44 @@
 import { createContext, useState } from "react";
-import axios from "axios";
-
-const POKEAPI_URL = "https://pokeapi.co/api/v2/";
-const pokeapi = axios.create({
-  baseURL: POKEAPI_URL,
-});
 
 const PokemonContext = createContext();
 
 export const PokemonProvider = ({ children }) => {
-  const [pokemons, setPokemons] = useState([]);
-  const [pokemonsFiltered, setPokemonsFiltered] = useState([]);
-  const [pokemonsSearched, setPokemonsSearched] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [pokemonFilter, setPokemonFilter] = useState("All pokemons");
+  const [searchedText, setSearchedText] = useState("");
 
-  const getAllPokemons = async (offset, limit) => {
-    const response = await pokeapi
-      .get(`pokemon?limit=${limit}&offset=${offset}`)
-      .catch((err) => {
-        console.log(err);
-      });
-
-    getPokemons(response.data.results);
-  };
-
-  const getPokemons = async (result) => {
-    const pokemonArr = [];
-
-    await Promise.all(
-      result.map(async (pokemonItem) => {
-        return axios
-          .get(`https://pokeapi.co/api/v2/pokemon/${pokemonItem.name}`)
-          .then((result) => {
-            pokemonArr.push(result.data);
-          });
-      })
-    );
-
-    pokemonArr.sort((a, b) => (a.id > b.id ? 1 : b.id > a.id ? -1 : 0));
-
-    setPokemons(pokemonArr);
-    setLoading(false);
-    console.log(pokemonArr);
+  const filterPokemons = () => {
+    switch (pokemonFilter) {
+      case "All pokemons":
+        return [0, 898];
+      case "Kanto":
+        return [0, 151];
+      case "Johto":
+        return [151, 251];
+      case "Hoenn":
+        return [251, 386];
+      case "Sinnoh":
+        return [386, 494];
+      case "Unova":
+        return [494, 649];
+      case "Kalos":
+        return [649, 721];
+      case "Alola":
+        return [721, 809];
+      case "Galar":
+        return [809, 898];
+      default:
+        return [0, 898];
+    }
   };
 
   return (
     <PokemonContext.Provider
       value={{
-        getAllPokemons,
-        setPokemonsFiltered,
-        setPokemonsSearched,
-        pokemonsSearched,
-        pokemonsFiltered,
-        loading,
-        pokemons,
+        setPokemonFilter,
+        filterPokemons,
+        setSearchedText,
+        searchedText,
+        pokemonFilter,
       }}
     >
       {children}

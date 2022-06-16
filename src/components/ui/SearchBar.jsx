@@ -3,19 +3,11 @@ import { useContext, useEffect, useState } from "react";
 import PokemonContext from "../../context/PokemonContext";
 
 function SearchBar() {
-  const { pokemonsFiltered, setPokemonsSearched } = useContext(PokemonContext);
-  const [text, setText] = useState();
+  const { setSearchedText } = useContext(PokemonContext);
+  const [text, setText] = useState("");
 
   useEffect(() => {
-    setPokemonsSearched(pokemonsFiltered);
-  }, [pokemonsFiltered]); // eslint-disable-line
-
-  useEffect(() => {
-    const searchResult = pokemonsFiltered.filter((pokemon) => {
-      return pokemon.name.includes(text);
-    });
-
-    setPokemonsSearched(searchResult);
+    setSearchedText(text);
   }, [text]); // eslint-disable-line
 
   const handleChange = (event) => {
