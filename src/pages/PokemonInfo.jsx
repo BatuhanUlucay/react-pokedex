@@ -203,8 +203,13 @@ function PokemonInfo() {
                   {/* <div class="stat-desc">21% more than last month</div> */}
                 </div>
               </div>
-            <EvolutionChain pokemonSpecies={pokemonSpecies}/>
             </div>
+          </div>
+        </div>
+        <div className="hero min-h-16 bg-base-200">
+
+          <div className="hero-content w-full">
+            <EvolutionChain pokemonSpecies={pokemonSpecies}/>
           </div>
         </div>
       </Card>

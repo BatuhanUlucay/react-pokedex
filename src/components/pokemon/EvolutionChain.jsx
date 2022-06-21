@@ -18,36 +18,45 @@ function EvolutionChain({ pokemonSpecies }) {
   });
 
   if (EvoChainIsSuccess) {
-    let mainArr = []
-    
+    let mainArr = [];
+
     let chain = EvoChainData.chain;
 
-    for(let i = 0; i < chain.evolves_to.length; i++){
-      let entry = [chain.species]
+    for (let i = 0; i < chain.evolves_to.length; i++) {
+      let entry = [chain.species];
       let tmp = chain.evolves_to[i];
       entry.push(tmp.species);
-      
-      while(tmp.hasOwnProperty("evolves_to") && tmp.evolves_to.length !== 0){
-          entry.push(tmp.evolves_to[0].species);
-          tmp = chain.evolves_to[i].evolves_to[0];
-        }
-        mainArr.push(entry);
+
+      while (tmp.hasOwnProperty("evolves_to") && tmp.evolves_to.length !== 0) {
+        entry.push(tmp.evolves_to[0].species);
+        tmp = chain.evolves_to[i].evolves_to[0];
+      }
+      mainArr.push(entry);
     }
 
     console.log(mainArr);
-  }
 
-  return (
-    <>
-      <h2>Evolution Chain</h2>
-      <div className="flex my-16">
-        <img
-          className="mask mask-circle mx-16"
-          src="https://api.lorem.space/image/shoes?w=160&h=160"
-        />
+    return (
+      <div className={`grid grid-rows-${mainArr.length}`}>
+        {mainArr.map((entry) => {
+          return (
+            <div className={`grid grid-cols-${entry.length}`}>
+              {entry.map((poke) => {
+                return(
+
+                    <img
+                  className="mask mask-circle "
+                  src="https://api.lorem.space/image/shoes?w=160&h=160"
+                />
+                  );
+              })}
+            </div>
+              
+          );
+        })}
       </div>
-    </>
-  );
+    );
+  }
 }
 
 export default EvolutionChain;
