@@ -1,43 +1,50 @@
-import React from 'react'
+import React from "react";
 import { useQuery } from "react-query";
-import axios from 'axios';
+import axios from "axios";
 
 const POKEAPI_URL = "https://pokeapi.co/api/v2/";
 
-function EvolutionChain({pokemonSpecies}) {
+function EvolutionChain({ pokemonSpecies }) {
+  const {
+    isLoading: EvoChainIsLoading,
+    error: EvoChainError,
+    data: EvoChainData,
+    isFetching: EvoChainIsFetchnig,
+    isSuccess: EvoChainIsSuccess,
+  } = useQuery(["pokemonSpecies", pokemonSpecies], async () => {
+    return axios
+      .get(`${pokemonSpecies.evolution_chain.url}`)
+      .then((res) => res.data);
+  });
 
-    const {
-        isLoading: EvoChainIsLoading,
-        error: EvoChainError,
-        data: EvoChainData,
-        isFetching: EvoChainIsFetchnig,
-        isSuccess: EvoChainIsSuccess,
-      } = useQuery(["pokemonSpecies", pokemonSpecies], async () => {
-        return axios
-          .get(`${pokemonSpecies.evolution_chain.url}`)
-          .then((res) => res.data);
-      });
+  if (EvoChainIsSuccess) {
+    let arr = []
+    
+    let chain = EvoChainData.chain;
 
-      console.log(EvoChainData);
-
-      if(EvoChainIsSuccess){
-
-        let tmp = []
-        let first = EvoChainData.chain.species.name;
-        console.log(first);
-        tmp = EvoChainData.chain.evolves_to[0];
-        while(tmp !== undefined){
-          console.log(tmp.species.name);
-          tmp = tmp.evolves_to[0];
-          //console.log(EvoChainData);
+    for(let i = 0; i < chain.evolves_to.length; i++){
+      let tmp = chain.evolves_to[i];
+      while(true){
+        console.log(tmp);
+        tmp = tmp.evolves_to[0];
+        if(tmp === undefined){
+          break;
         }
       }
-
-      
+    }
+  }
 
   return (
-    <div>EvolutionChain</div>
-  )
+    <>
+      <h2>Evolution Chain</h2>
+      <div className="flex my-16">
+        <img
+          className="mask mask-circle mx-16"
+          src="https://api.lorem.space/image/shoes?w=160&h=160"
+        />
+      </div>
+    </>
+  );
 }
 
-export default EvolutionChain
+export default EvolutionChain;
