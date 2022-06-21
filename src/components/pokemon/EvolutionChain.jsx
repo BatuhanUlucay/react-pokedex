@@ -40,12 +40,12 @@ function EvolutionChain({ pokemonSpecies }) {
       <div className={`grid grid-rows-${mainArr.length}`}>
         {mainArr.map((entry) => {
           return (
-            <div className={`grid grid-cols-${entry.length}`}>
+            <div className={"flex"}>
               {entry.map((poke) => {
                 return(
 
                     <img
-                  className="mask mask-circle "
+                  className="mask mask-circle my-8 mx-16"
                   src="https://api.lorem.space/image/shoes?w=160&h=160"
                 />
                   );
