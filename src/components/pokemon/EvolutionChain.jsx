@@ -18,20 +18,23 @@ function EvolutionChain({ pokemonSpecies }) {
   });
 
   if (EvoChainIsSuccess) {
-    let arr = []
+    let mainArr = []
     
     let chain = EvoChainData.chain;
 
     for(let i = 0; i < chain.evolves_to.length; i++){
+      let entry = [chain.species]
       let tmp = chain.evolves_to[i];
-      while(true){
-        console.log(tmp);
-        tmp = tmp.evolves_to[0];
-        if(tmp === undefined){
-          break;
+      entry.push(tmp.species);
+      
+      while(tmp.hasOwnProperty("evolves_to") && tmp.evolves_to.length !== 0){
+          entry.push(tmp.evolves_to[0].species);
+          tmp = chain.evolves_to[i].evolves_to[0];
         }
-      }
+        mainArr.push(entry);
     }
+
+    console.log(mainArr);
   }
 
   return (
