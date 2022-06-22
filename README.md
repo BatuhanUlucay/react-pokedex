@@ -1,12 +1,14 @@
-pokemon pages:
-    add evolution chains
-    pokemon type
+refactor unused vars, multiple times used funct
+not found page
+about page
 
 go to top button
-about page
+go back button
+check responsiveness
 do some styling
 fix icons hover
 write a real readme 
+check google chrome image bug
 deploy
 
 # Getting Started with Create React App
