@@ -1,11 +1,11 @@
 import React from "react";
 import { useQuery } from "react-query";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const POKEAPI_URL = "https://pokeapi.co/api/v2/";
 
 function EvolutionChain({ pokemonSpecies }) {
-
   const numberPadding = (id) => {
     if (id < 10) {
       return "00" + id;
@@ -47,29 +47,37 @@ function EvolutionChain({ pokemonSpecies }) {
 
     console.log(mainArr);
 
+    if(mainArr.length === 0){
+      mainArr.push([chain.species]);
+    }
+
     return (
-      <div className={`grid grid-rows-${mainArr.length}`}>
+      <div className={`grid grid-rows-${mainArr.length} text-center`}>
+        <h1 className="text-3xl">Evolution Chain</h1>
         {mainArr.map((entry) => {
           return (
-            <div className={"flex"}>
+            <div className="flex mx-5">
               {entry.map((poke) => {
-                console.log("pokee" , poke)
+                console.log("pokee", poke);
 
                 const poke_id = poke.url.split("/")[6];
                 console.log("id", poke_id);
-                return(
-
-                  <img
-                  className="mask mask-circle my-8 mx-16 w-32"
-                  src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${numberPadding(
-                    poke_id
-                  )}.png`}
-                  alt="Pokemon"
-                />
-                  );
+                return (
+                  <Link to={`/pokemons/${poke.name}`} className="mx-5">
+                    <div className="text-center">
+                      <img
+                        className="my-8 mx-16 w-32"
+                        src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${numberPadding(
+                          poke_id
+                        )}.png`}
+                        alt="Pokemon"
+                      />
+                      <p>{poke.name}</p>
+                    </div>
+                  </Link>
+                );
               })}
             </div>
-              
           );
         })}
       </div>
