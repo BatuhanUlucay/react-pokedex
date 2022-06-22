@@ -5,6 +5,17 @@ import axios from "axios";
 const POKEAPI_URL = "https://pokeapi.co/api/v2/";
 
 function EvolutionChain({ pokemonSpecies }) {
+
+  const numberPadding = (id) => {
+    if (id < 10) {
+      return "00" + id;
+    } else if (id < 100) {
+      return "0" + id;
+    } else {
+      return id;
+    }
+  };
+
   const {
     isLoading: EvoChainIsLoading,
     error: EvoChainError,
@@ -42,11 +53,18 @@ function EvolutionChain({ pokemonSpecies }) {
           return (
             <div className={"flex"}>
               {entry.map((poke) => {
+                console.log("pokee" , poke)
+
+                const poke_id = poke.url.split("/")[6];
+                console.log("id", poke_id);
                 return(
 
-                    <img
-                  className="mask mask-circle my-8 mx-16"
-                  src="https://api.lorem.space/image/shoes?w=160&h=160"
+                  <img
+                  className="mask mask-circle my-8 mx-16 w-32"
+                  src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${numberPadding(
+                    poke_id
+                  )}.png`}
+                  alt="Pokemon"
                 />
                   );
               })}
