@@ -20,9 +20,9 @@ function Navbar() {
             <Link to="/about">About</Link>
           </li>
           <li>
-            <Link to="https://github.com/BatuhanUlucay/react-pokedex">
+            <a href="https://github.com/BatuhanUlucay/react-pokedex">
               <FaGithub className="inline text-2xl" /> Github
-            </Link>
+            </a>
           </li>
         </ul>
       </div>
