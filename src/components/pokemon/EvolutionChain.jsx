@@ -2,7 +2,7 @@ import React from "react";
 import { useQuery } from "react-query";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import {AiOutlineRight} from "react-icons/ai"
+import { AiOutlineRight } from "react-icons/ai";
 
 const POKEAPI_URL = "https://pokeapi.co/api/v2/";
 
@@ -48,7 +48,7 @@ function EvolutionChain({ pokemonSpecies }) {
 
     console.log(mainArr);
 
-    if(mainArr.length === 0){
+    if (mainArr.length === 0) {
       mainArr.push([chain.species]);
     }
 
@@ -59,30 +59,29 @@ function EvolutionChain({ pokemonSpecies }) {
           return (
             <div className="flex mx-5">
               {entry.map((poke, index) => {
-
-                
-
                 console.log("pokee", poke);
 
                 const poke_id = poke.url.split("/")[6];
                 console.log("id", poke_id);
                 return (
                   <>
-                  {index !== 0 &&<AiOutlineRight className="text-5xl self-center"/>}
-                  
-                  <Link to={`/pokemons/${poke.name}`} className="mx-5">
-                    <div className="text-center">
-                      <img
-                        className="my-8 mx-16 w-32"
-                        src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${numberPadding(
-                          poke_id
+                    {index !== 0 && (
+                      <AiOutlineRight className="text-5xl self-center" />
+                    )}
+
+                    <Link to={`/pokemons/${poke.name}`} className="mx-5">
+                      <div className="text-center">
+                        <img
+                          className="my-8 mx-16 w-32"
+                          src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${numberPadding(
+                            poke_id
                           )}.png`}
                           alt="Pokemon"
-                          />
-                      <p>{poke.name}</p>
-                    </div>
-                  </Link>
-              </>
+                        />
+                        <p>{poke.name}</p>
+                      </div>
+                    </Link>
+                  </>
                 );
               })}
             </div>
