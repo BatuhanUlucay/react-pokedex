@@ -6,6 +6,7 @@ import Card from "../components/ui/Card";
 import useFetch from "../hooks/useFetch";
 import {GiBroadsword, GiHeartPlus, GiPointySword, GiSurroundedShield, GiWalkingBoot} from "react-icons/gi"
 import {BsShieldShaded} from "react-icons/bs"
+import GoBackButton from "../components/ui/GoBackButton";
 
 const api_url = "https://pokeapi.co/api/v2";
 
@@ -137,6 +138,7 @@ function PokemonInfo() {
           </div>
         </div>
       </Card>
+      <GoBackButton />
     </QueryClientProvider>
     );
   } else if (pokemonError || pokemonSpeciesError) {
