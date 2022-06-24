@@ -11,21 +11,21 @@ function App() {
   // You are exposing the context to the components do not use the component.
   return (
     <>
-        <Router>
-          <div className="flex flex-col justify-between h-screen">
-            <Navbar />
-            <main className="container mx-auto px-3 pb-12">
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/pokemons/:pokemon" element={<PokemonInfo />} />
-                {/*<Route path="/notfound" element={<NotFound />} />
+      <Router>
+        <div className="flex flex-col justify-between h-screen">
+          <Navbar />
+          <main className="container mx-auto px-3 pb-12">
+            <Routes>
+              <Route path="/about" element={<About />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/pokemons/:pokemon" element={<PokemonInfo />} />
+              {/*<Route path="/notfound" element={<NotFound />} />
               <Route path="/*" element={<NotFound />} /> */}
-              </Routes>
-            </main>
-            <Footer />
-          </div>
-        </Router>
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Router>
     </>
   );
 }
