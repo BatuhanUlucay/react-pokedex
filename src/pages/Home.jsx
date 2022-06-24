@@ -4,6 +4,7 @@ import PokemonList from "../components/pokemon/PokemonList";
 import RegionFilter from "../components/ui/RegionFilter";
 import { PokemonProvider } from "../context/PokemonContext";
 import { QueryClient, QueryClientProvider } from "react-query";
+import ScrollToTop from "../components/ui/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -13,6 +14,7 @@ function Home() {
       <div className="h-16 flex items-center max-w-screen-lg mx-auto my-16">
         <SearchBar />
         <RegionFilter />
+        <ScrollToTop />
       </div>
       <QueryClientProvider client={queryClient}>
         <PokemonList />
