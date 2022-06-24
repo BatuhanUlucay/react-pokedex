@@ -1,12 +1,11 @@
 refactor unused vars, multiple times used funct
-not found page
-about page
+not found page gif
+
 
 go to top button
 go back button
 check responsiveness
 do some styling
-fix icons hover
 write a real readme 
 check google chrome image bug
 deploy
