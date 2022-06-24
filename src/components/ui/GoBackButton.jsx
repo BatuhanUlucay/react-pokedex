@@ -8,7 +8,7 @@ function GoBackButton() {
     <button
       class="btn btn-ghost"
       onClick={() => {
-        navigate(-1);
+        navigate("/");
       }}
     >
       <TiArrowBack className="mr-2"/>
