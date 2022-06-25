@@ -58,7 +58,7 @@ function PokemonInfo() {
                   src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${numberPadding(
                     pokemon.id
                   )}.png`}
-                  className="max-w-xs rounded-lg shadow-2xl mx-auto"
+                  className="max-w-xs rounded-lg shadow-2xl mx-auto my-6"
                   alt="pokemon-img"
                 />
               </div>

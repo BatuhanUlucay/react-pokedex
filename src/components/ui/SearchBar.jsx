@@ -17,7 +17,7 @@ function SearchBar() {
   return (
     <input
       type="text"
-      className="bg-gray-200 input-lg text-black flex-grow rounded-lg shadow"
+      className="bg-gray-200 input-lg text-black rounded-lg shadow min-w-0"
       placeholder="Search"
       onChange={handleChange}
     ></input>
