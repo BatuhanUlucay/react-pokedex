@@ -10,9 +10,9 @@ function RegionFilter() {
   };
 
   return (
-    <>
+    <div>
       <select
-        className="select select-bordered select-lg w-full max-w-xs ml-16"
+        className="select select-bordered select-lg max-w-xs ml-5 flex-grow"
         onChange={handleChange}
         value={pokemonFilter}
       >
@@ -26,7 +26,7 @@ function RegionFilter() {
         <option>Alola</option>
         <option>Galar</option>
       </select>
-    </>
+    </div>
   );
 }
 

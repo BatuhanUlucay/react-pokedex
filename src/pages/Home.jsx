@@ -11,7 +11,7 @@ const queryClient = new QueryClient();
 function Home() {
   return (
     <PokemonProvider>
-      <div className="h-16 flex items-center max-w-screen-lg mx-auto my-16">
+      <div className=" xl:flex l:flex m:flex items-center max-w-screen-lg mx-auto my-16">
         <SearchBar />
         <RegionFilter />
         <ScrollToTop />

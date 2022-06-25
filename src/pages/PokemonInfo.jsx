@@ -52,7 +52,7 @@ function PokemonInfo() {
       <QueryClientProvider client={queryClient}>
         <Card>
           <div className="hero min-h-16 bg-base-200">
-            <div className="hero-content flex-col lg:flex-row">
+            <div className="hero-content flex-col lg:flex-row mx-auto">
               <img
                 src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${numberPadding(
                   pokemon.id
@@ -71,12 +71,12 @@ function PokemonInfo() {
                     return entry.language.name === "en"
                   })[0].flavor_text}
                 </p>
-                <div className="stats shadow mb-6 min-w-full">
+                <div className="stats shadow mb-6 m:stats-vertical sm:stats-vertical">
                   <div className="stat">
                     <div className="stat-figure text-red-500">
                       <GiHeartPlus className="text-4xl" />
                     </div>
-                    <div className="stat-title">HP</div>
+                    <div className="stat-title w-32">HP</div>
                     <div className="stat-value text-red-500">
                       {pokemon.stats[0].base_stat}
                     </div>
@@ -86,7 +86,7 @@ function PokemonInfo() {
                     <div className="stat-figure text-primary">
                       <GiBroadsword className="text-4xl" />
                     </div>
-                    <div className="stat-title">Attack</div>
+                    <div className="stat-title w-32">Attack</div>
                     <div className="stat-value text-primary">
                       {pokemon.stats[1].base_stat}
                     </div>
@@ -96,18 +96,18 @@ function PokemonInfo() {
                     <div className="stat-figure text-green-700">
                       <BsShieldShaded className="text-4xl" />
                     </div>
-                    <div className="stat-title">Defense</div>
+                    <div className="stat-title w-32">Defense</div>
                     <div className="stat-value text-green-700">
                       {pokemon.stats[2].base_stat}
                     </div>
                   </div>
                 </div>
-                <div className="stats shadow min-w-full">
+                <div className="stats shadow sm:stats-vertical mx-6">
                   <div className="stat">
                     <div className="stat-figure text-purple-400">
                       <GiPointySword className="text-4xl" />
                     </div>
-                    <div className="stat-title">Special Attack</div>
+                    <div className="stat-title w-32">Special Attack</div>
                     <div className="stat-value text-purple-400">
                       {pokemon.stats[3].base_stat}
                     </div>
@@ -116,7 +116,7 @@ function PokemonInfo() {
                     <div className="stat-figure text-sky-400">
                       <GiSurroundedShield className="text-4xl" />
                     </div>
-                    <div className="stat-title">Special Defense</div>
+                    <div className="stat-title w-32">Special Defense</div>
                     <div className="stat-value text-sky-400">
                       {pokemon.stats[4].base_stat}
                     </div>
@@ -125,7 +125,7 @@ function PokemonInfo() {
                     <div className="stat-figure text-yellow-500">
                       <GiWalkingBoot className="text-4xl" />
                     </div>
-                    <div className="stat-title">Speed</div>
+                    <div className="stat-title w-32">Speed</div>
                     <div className="stat-value text-yellow-500">
                       {pokemon.stats[5].base_stat}
                     </div>
