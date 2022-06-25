@@ -8,8 +8,6 @@ import numberPadding from "../../util/NumberPadding";
 const POKEAPI_URL = "https://pokeapi.co/api/v2/";
 
 function EvolutionChain({ pokemonSpecies }) {
-
-
   const {
     isLoading: EvoChainIsLoading,
     error: EvoChainError,
@@ -71,7 +69,10 @@ function EvolutionChain({ pokemonSpecies }) {
                           )}.png`}
                           alt="Pokemon"
                         />
-                        <p>{poke.name}</p>
+                        <p>
+                          {poke.name.charAt(0).toUpperCase() +
+                            poke.name.substring(1)}
+                        </p>
                       </div>
                     </Link>
                   </>
