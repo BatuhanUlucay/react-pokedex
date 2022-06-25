@@ -37,7 +37,7 @@ function EvolutionChain({ pokemonSpecies }) {
     }
 
     return (
-      <div className={`grid grid-rows-${mainChain.length} text-center`}>
+      <div className={`grid grid-rows-${mainChain.length} text-center invisible sm:visible`}>
         <h1 className="text-3xl">Evolution Chain</h1>
         {mainChain.map((entry) => {
           return (
