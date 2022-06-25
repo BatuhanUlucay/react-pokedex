@@ -5,23 +5,18 @@ import { Link } from "react-router-dom";
 import { AiOutlineRight } from "react-icons/ai";
 import numberPadding from "../../util/NumberPadding";
 
-const POKEAPI_URL = "https://pokeapi.co/api/v2/";
-
 function EvolutionChain({ pokemonSpecies }) {
-  const {
-    isLoading: EvoChainIsLoading,
-    error: EvoChainError,
-    data: EvoChainData,
-    isFetching: EvoChainIsFetchnig,
-    isSuccess: EvoChainIsSuccess,
-  } = useQuery(["pokemonSpecies", pokemonSpecies], async () => {
-    return axios
-      .get(`${pokemonSpecies.evolution_chain.url}`)
-      .then((res) => res.data);
-  });
+  const { data: EvoChainData, isSuccess: EvoChainIsSuccess } = useQuery(
+    ["pokemonSpecies", pokemonSpecies],
+    async () => {
+      return axios
+        .get(`${pokemonSpecies.evolution_chain.url}`)
+        .then((res) => res.data);
+    }
+  );
 
   if (EvoChainIsSuccess) {
-    let mainArr = [];
+    let mainChain = [];
 
     let chain = EvoChainData.chain;
 
@@ -34,26 +29,21 @@ function EvolutionChain({ pokemonSpecies }) {
         entry.push(tmp.evolves_to[0].species);
         tmp = chain.evolves_to[i].evolves_to[0];
       }
-      mainArr.push(entry);
+      mainChain.push(entry);
     }
 
-    console.log(mainArr);
-
-    if (mainArr.length === 0) {
-      mainArr.push([chain.species]);
+    if (mainChain.length === 0) {
+      mainChain.push([chain.species]);
     }
 
     return (
-      <div className={`grid grid-rows-${mainArr.length} text-center`}>
+      <div className={`grid grid-rows-${mainChain.length} text-center`}>
         <h1 className="text-3xl">Evolution Chain</h1>
-        {mainArr.map((entry) => {
+        {mainChain.map((entry) => {
           return (
             <div className="flex mx-5">
               {entry.map((poke, index) => {
-                console.log("pokee", poke);
-
                 const poke_id = poke.url.split("/")[6];
-                console.log("id", poke_id);
                 return (
                   <>
                     {index !== 0 && (

@@ -1,7 +1,3 @@
-refactor unused vars, multiple times used funct
-
-check responsiveness
-do some styling
 write a real readme 
 check google chrome image bug
 deploy

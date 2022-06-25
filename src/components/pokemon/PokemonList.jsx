@@ -8,24 +8,18 @@ import PokemonContext from "../../context/PokemonContext";
 const POKEAPI_URL = "https://pokeapi.co/api/v2/";
 
 function PokemonList() {
+  const { filterPokemons, searchedText } = useContext(PokemonContext);
 
-  const {filterPokemons, searchedText} = useContext(PokemonContext);
-
-  const {
-    isLoading: pokemonNamesIsLoading,
-    error: pokemonNamesError,
-    data: pokemonNamesData,
-    isFetching: pokemonNamesIsFetchnig,
-    isSuccess: pokemonNamesIsSuccess,
-  } = useQuery("pokemonNames", async () => {
-    return axios
-      .get(`${POKEAPI_URL}pokemon?limit=898&offset=0`)
-      .then((res) => res.data);
-  });
+  const { isLoading: pokemonNamesIsLoading, data: pokemonNamesData } = useQuery(
+    "pokemonNames",
+    async () => {
+      return axios
+        .get(`${POKEAPI_URL}pokemon?limit=898&offset=0`)
+        .then((res) => res.data);
+    }
+  );
 
   const pokemonNames = pokemonNamesData?.results;
-
-  console.log(pokemonNames);
 
   const {
     data: allPokemons,
@@ -47,21 +41,27 @@ function PokemonList() {
 
   if (pokemonNamesIsLoading || allPokemonsIsLoading) {
     return <LoadingSpinner />;
-  }
-
-  else if (allPokemonsIsSuccess) {
+  } else if (allPokemonsIsSuccess) {
     return (
       <div className="grid grid-cols-1 gap-8 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-        {allPokemons.filter((pokemon, index) => {return index >= filterPokemons()[0] && index <= filterPokemons()[1] && pokemon.name.includes(searchedText)}).map((pokemon) => {
-          return (
-            <PokeCard
-              name={pokemon.name}
-              types={pokemon.types}
-              key={pokemon.id}
-              id={pokemon.id}
-            />
-          );
-        })}
+        {allPokemons
+          .filter((pokemon, index) => {
+            return (
+              index >= filterPokemons()[0] &&
+              index <= filterPokemons()[1] &&
+              pokemon.name.includes(searchedText)
+            );
+          })
+          .map((pokemon) => {
+            return (
+              <PokeCard
+                name={pokemon.name}
+                types={pokemon.types}
+                key={pokemon.id}
+                id={pokemon.id}
+              />
+            );
+          })}
       </div>
     );
   }
