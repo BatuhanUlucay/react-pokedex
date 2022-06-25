@@ -66,7 +66,10 @@ function PokemonInfo() {
                     params.pokemon.substring(1)}
                 </h1>
                 <p className="py-6">
-                  {pokemonSpecies.flavor_text_entries[7].flavor_text}
+                  {pokemonSpecies.flavor_text_entries.filter((entry) => {
+                    console.log(entry);
+                    return entry.language.name === "en"
+                  })[0].flavor_text}
                 </p>
                 <div className="stats shadow mb-6 min-w-full">
                   <div className="stat">
