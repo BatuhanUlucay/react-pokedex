@@ -2,17 +2,9 @@ import React from "react";
 import PokemonType from "../pokemon/PokemonType";
 import Card from "./Card";
 import { Link } from "react-router-dom";
+import numberPadding from "../../util/NumberPadding";
 
 function PokeCard({ id, name, types }) {
-  const numberPadding = (id) => {
-    if (id < 10) {
-      return "00" + id;
-    } else if (id < 100) {
-      return "0" + id;
-    } else {
-      return id;
-    }
-  };
 
   return (
     <Link to={`/pokemons/${name}`}>

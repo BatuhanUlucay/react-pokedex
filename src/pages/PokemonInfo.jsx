@@ -9,6 +9,7 @@ import {BsShieldShaded} from "react-icons/bs"
 import GoBackButton from "../components/ui/GoBackButton";
 import LoadingGif from "../components/layout/assets/fidget.gif"
 import NotFound from "./NotFound";
+import numberPadding from "../util/NumberPadding";
 
 const api_url = "https://pokeapi.co/api/v2";
 
@@ -28,16 +29,6 @@ function PokemonInfo() {
     loading: pokemonSpeciesLoading,
     error: pokemonSpeciesError,
   } = useFetch(`${api_url}/pokemon-species/${params.pokemon}`);
-
-  const numberPadding = (id) => {
-    if (id < 10) {
-      return "00" + id;
-    } else if (id < 100) {
-      return "0" + id;
-    } else {
-      return id;
-    }
-  };
 
   if (pokemonLoading || pokemonSpeciesLoading) {
     return <div className="container"><img src={LoadingGif} alt="Loading..." className="mx-auto"></img></div>;

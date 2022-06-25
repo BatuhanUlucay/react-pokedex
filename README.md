@@ -1,5 +1,4 @@
 refactor unused vars, multiple times used funct
-not found page gif
 
 check responsiveness
 do some styling

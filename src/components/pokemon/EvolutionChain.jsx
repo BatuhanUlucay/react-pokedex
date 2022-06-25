@@ -3,19 +3,12 @@ import { useQuery } from "react-query";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { AiOutlineRight } from "react-icons/ai";
+import numberPadding from "../../util/NumberPadding";
 
 const POKEAPI_URL = "https://pokeapi.co/api/v2/";
 
 function EvolutionChain({ pokemonSpecies }) {
-  const numberPadding = (id) => {
-    if (id < 10) {
-      return "00" + id;
-    } else if (id < 100) {
-      return "0" + id;
-    } else {
-      return id;
-    }
-  };
+
 
   const {
     isLoading: EvoChainIsLoading,
