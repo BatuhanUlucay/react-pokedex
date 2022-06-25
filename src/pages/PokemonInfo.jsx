@@ -7,10 +7,9 @@ import useFetch from "../hooks/useFetch";
 import {GiBroadsword, GiHeartPlus, GiPointySword, GiSurroundedShield, GiWalkingBoot} from "react-icons/gi"
 import {BsShieldShaded} from "react-icons/bs"
 import GoBackButton from "../components/ui/GoBackButton";
+import LoadingGif from "../components/layout/assets/fidget.gif"
 
 const api_url = "https://pokeapi.co/api/v2";
-
-// You might want to add a 'go back' button that directs you to the home page
 
 const queryClient = new QueryClient();
 
@@ -40,7 +39,7 @@ function PokemonInfo() {
   };
 
   if (pokemonLoading || pokemonSpeciesLoading) {
-    return <h2>Loading...</h2>;
+    return <div className="container"><img src={LoadingGif} alt="Loading..." className="mx-auto"></img></div>;
   } else if (
     !pokemonLoading &&
     pokemon &&

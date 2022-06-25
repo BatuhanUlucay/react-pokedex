@@ -1,9 +1,6 @@
 refactor unused vars, multiple times used funct
 not found page gif
 
-
-go to top button
-go back button
 check responsiveness
 do some styling
 write a real readme 
