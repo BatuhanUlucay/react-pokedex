@@ -1,6 +1,10 @@
 write a real readme 
+responsiveness
+evo vhain complicated
+
 check google chrome image bug
 deploy
+names containing dash is directing 404
 
 # Getting Started with Create React App
 
