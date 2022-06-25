@@ -8,6 +8,7 @@ import {GiBroadsword, GiHeartPlus, GiPointySword, GiSurroundedShield, GiWalkingB
 import {BsShieldShaded} from "react-icons/bs"
 import GoBackButton from "../components/ui/GoBackButton";
 import LoadingGif from "../components/layout/assets/fidget.gif"
+import NotFound from "./NotFound";
 
 const api_url = "https://pokeapi.co/api/v2";
 
@@ -141,7 +142,7 @@ function PokemonInfo() {
     </QueryClientProvider>
     );
   } else if (pokemonError || pokemonSpeciesError) {
-    return <h2>Oops! Something went wrong I guess !?</h2>;
+    return <NotFound />;
   }
 }
 
