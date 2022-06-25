@@ -13,7 +13,7 @@ function Navbar() {
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal p-0">
-          <li>
+          <li className="invisible sm:visible">
             <Link to="/">Home</Link>
           </li>
           <li>
