@@ -11,7 +11,7 @@ function SearchBar() {
   }, [text]); // eslint-disable-line
 
   const handleChange = (event) => {
-    setText(event.target.value);
+    setText(event.target.value.toLowercase());
   };
 
   return (
