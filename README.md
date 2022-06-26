@@ -15,6 +15,6 @@ The site can be accessed from [here](https://react-pokedex-alpha.vercel.app/)
 
 - There are little responsiveness bugs in mobile view.
 - When go back to home button is clicked, homepage scroll and filter history is gone.
-- Some pokemons with a dash("-") in the name field redirects to not found page.
+- [Solved] ~~Some pokemons with a dash("-") in the name field redirects to not found page.~~ 
 - Some pokemons with complicated evolution chain (like Eevee) might have a different styling in detail page.
 - There is a bug about downloading images more than 500 about Google Chrome, you can check this in other browsers.

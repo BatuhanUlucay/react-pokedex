@@ -64,8 +64,8 @@ function PokemonInfo() {
               </div>
               <div>
                 <h1 className="text-5xl font-bold text-center mt-16">
-                  {params.pokemon.charAt(0).toUpperCase() +
-                    params.pokemon.substring(1)}
+                  {pokemon.name.charAt(0).toUpperCase() +
+                    pokemon.name.substring(1)}
                 </h1>
                 <p className="py-6">
                   {

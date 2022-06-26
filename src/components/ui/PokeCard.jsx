@@ -7,7 +7,7 @@ import numberPadding from "../../util/NumberPadding";
 function PokeCard({ id, name, types }) {
 
   return (
-    <Link to={`/pokemons/${name}`}>
+    <Link to={`/pokemons/${id}`}>
       <Card className="min-w-72 bg-base-100 shadow-xl border-2 border-solid">
         <figure>
           <img
