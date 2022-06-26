@@ -76,7 +76,7 @@ function PokemonInfo() {
                   }
                 </p>
 
-                <div className="stats shadow mb-6 stats-vertical sm:stats-horizontal w-36 sm:w-full mx-3">
+                <div className="stats shadow mb-6 stats-vertical sm:stats-horizontal w-36 sm:w-full mx-3 sm:mx-0">
                   <div className="stat w-4">
                     <div className="stat-title w-4 md:w-32 lg:w-16 xl:w-26">
                       HP
@@ -107,7 +107,7 @@ function PokemonInfo() {
                     </div>
                   </div>
                 </div>
-                <div className="stats shadow mb-6 stats-vertical sm:stats-horizontal w-36 sm:min-w-full">
+                <div className="stats shadow mb-6 stats-vertical sm:stats-horizontal w-36 sm:w-full">
                   <div className="stat w-4">
                     <div className="stat-title w-4 md:w-32 lg:w-16 xl:w-26">
                       Special Attack
