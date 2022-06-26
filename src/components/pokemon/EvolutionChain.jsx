@@ -53,7 +53,7 @@ function EvolutionChain({ pokemonSpecies }) {
                     <Link to={`/pokemons/${poke.name}`} className="mx-5">
                       <div className="text-center">
                         <img
-                          className="my-8 mx-16 w-32"
+                          className="my-8 mx-8 w-32"
                           src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${numberPadding(
                             poke_id
                           )}.png`}

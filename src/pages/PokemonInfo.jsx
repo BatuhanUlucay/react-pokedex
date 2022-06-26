@@ -75,65 +75,65 @@ function PokemonInfo() {
                     })[0].flavor_text
                   }
                 </p>
-                
-                  <div className="stats shadow mb-6 stats-vertical sm:stats-horizontal w-32 sm:w-full">
-                    <div className="stat w-4">
-                      <div className="stat-figure text-red-500">
-                        <GiHeartPlus className="text-4xl" />
-                      </div>
-                      <div className="stat-title w-4 md:w-32 lg:w-16 xl:w-32">HP</div>
-                      <div className="stat-value text-red-500">
-                        {pokemon.stats[0].base_stat}
-                      </div>
-                    </div>
 
-                    <div className="stat w-4">
-                      <div className="stat-figure text-primary">
-                        <GiBroadsword className="text-4xl" />
-                      </div>
-                      <div className="stat-title w-4 md:w-32 lg:w-16 xl:w-32">Attack</div>
-                      <div className="stat-value text-primary">
-                        {pokemon.stats[1].base_stat}
-                      </div>
+                <div className="stats shadow mb-6 stats-vertical sm:stats-horizontal w-32 sm:w-full">
+                  <div className="stat w-4">
+                    <div className="stat-title w-4 md:w-32 lg:w-16 xl:w-26">
+                      HP
                     </div>
-
-                    <div className="stat w-4">
-                      <div className="stat-figure text-green-700">
-                        <BsShieldShaded className="text-4xl" />
-                      </div>
-                      <div className="stat-title w-4 md:w-32 lg:w-16 xl:w-32">Defense</div>
-                      <div className="stat-value text-green-700">
-                        {pokemon.stats[2].base_stat}
-                      </div>
+                    <div className="stat-value text-red-500 flex">
+                      {pokemon.stats[0].base_stat}
+                      <GiHeartPlus className="text-4xl ml-4"/>
                     </div>
                   </div>
-                  <div className="stats shadow mb-6 stats-vertical sm:stats-horizontal w-32 sm:min-w-full">
-                    <div className="stat w-4">
-                      <div className="stat-figure text-purple-400">
-                        <GiPointySword className="text-4xl" />
-                      </div>
-                      <div className="stat-title w-4 md:w-32 lg:w-16 xl:w-32">Special Attack</div>
-                      <div className="stat-value text-purple-400">
-                        {pokemon.stats[3].base_stat}
-                      </div>
+
+                  <div className="stat w-4">
+                    <div className="stat-title w-4 md:w-32 lg:w-16 xl:w-26">
+                      Attack
                     </div>
-                    <div className="stat w-4">
-                      <div className="stat-figure text-sky-400">
-                        <GiSurroundedShield className="text-4xl" />
-                      </div>
-                      <div className="stat-title w-4 md:w-32 lg:w-16 xl:w-32">Special Defense</div>
-                      <div className="stat-value text-sky-400">
-                        {pokemon.stats[4].base_stat}
-                      </div>
+                    <div className="stat-value text-primary flex">
+                      {pokemon.stats[1].base_stat}
+                      <GiBroadsword className="text-4xl ml-4"/>
                     </div>
-                    <div className="stat w-4">
-                      <div className="stat-figure text-yellow-500">
-                        <GiWalkingBoot className="text-4xl" />
-                      </div>
-                      <div className="stat-title w-4 md:w-32 lg:w-16 xl:w-32">Speed</div>
-                      <div className="stat-value text-yellow-500">
-                        {pokemon.stats[5].base_stat}
-                      </div>
+                  </div>
+
+                  <div className="stat w-4">
+                    <div className="stat-title w-4 md:w-32 lg:w-16 xl:w-26">
+                      Defense
+                    </div>
+                    <div className="stat-value text-green-700 flex">
+                      {pokemon.stats[2].base_stat}
+                      <BsShieldShaded className="text-4xl ml-4" />
+                    </div>
+                  </div>
+                </div>
+                <div className="stats shadow mb-6 stats-vertical sm:stats-horizontal w-32 sm:min-w-full">
+                  <div className="stat w-4">
+                    <div className="stat-title w-4 md:w-32 lg:w-16 xl:w-26">
+                      Special Attack
+                    </div>
+                    <div className="stat-value text-purple-400 flex">
+                      {pokemon.stats[3].base_stat}
+                      <GiPointySword className="text-4xl ml-4" />
+                    </div>
+                  </div>
+                  <div className="stat w-4">
+                    <div className="stat-title w-4 md:w-32 lg:w-16 xl:w-26">
+                      Special Defense
+                    </div>
+                    <div className="stat-value text-sky-400 flex">
+                      {pokemon.stats[4].base_stat}
+                      <GiSurroundedShield className="text-4xl ml-4" />
+                    </div>
+                  </div>
+                  <div className="stat w-4">
+                    <div className="stat-title w-4 md:w-32 lg:w-16 xl:w-26">
+                      Speed
+                    </div>
+                    <div className="stat-value text-yellow-500 flex">
+                      {pokemon.stats[5].base_stat}
+                      <GiWalkingBoot className="text-4xl ml-4" />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -141,7 +141,7 @@ function PokemonInfo() {
           </div>
           <div className="hero min-h-16 bg-base-200">
             <div className="hero-content w-full">
-              <EvolutionChain pokemonSpecies={pokemonSpecies}/>
+              <EvolutionChain pokemonSpecies={pokemonSpecies} />
             </div>
           </div>
         </Card>
