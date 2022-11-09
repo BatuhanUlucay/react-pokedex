@@ -13,6 +13,4 @@ The site can be accessed from [here](https://react-pokedex-alpha.vercel.app/)
 
 ## Known bugs and Todos
 
-- There is a bug about downloading images more than 500 about Google Chrome, you can check this in other browsers.
-- [Solved] ~~There are little responsiveness bugs in mobile view. ~~
-- [Solved] ~~Some pokemons with a dash("-") in the name field redirects to not found page.~~ 
+This project is trying to render too many images at the same time. Memory and performance optimizations could be applied.
