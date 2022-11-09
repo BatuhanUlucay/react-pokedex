@@ -7,14 +7,14 @@ function Navbar() {
   return (
     <div className="navbar bg-base-300">
       <div className="flex-1">
-        <Link to="/" className="btn btn-ghost normal-case text-xl">
+        <Link to="/" className="btn btn-ghost normal-case text-xl" reloadDocument>
           <img src={logo} alt="poke-logo" width="120" />
         </Link>
       </div>
       <div className="flex-none">
         <ul className="menu menu-horizontal p-0">
           <li className="invisible sm:visible">
-            <Link to="/">Home</Link>
+            <Link to="/" reloadDocument>Home</Link>
           </li>
           <li>
             <Link to="/about">About</Link>

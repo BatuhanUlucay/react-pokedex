@@ -42,26 +42,26 @@ function PokemonList() {
   if (pokemonNamesIsLoading || allPokemonsIsLoading) {
     return <LoadingSpinner />;
   } else if (allPokemonsIsSuccess) {
+    const flt = allPokemons.filter((pokemon, index) => {
+      return (
+        index >= filterPokemons()[0] &&
+        index <= filterPokemons()[1] &&
+        pokemon.name.includes(searchedText)
+      );
+    });
+
     return (
       <div className="grid grid-cols-1 gap-8 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-        {allPokemons
-          .filter((pokemon, index) => {
-            return (
-              index >= filterPokemons()[0] &&
-              index <= filterPokemons()[1] &&
-              pokemon.name.includes(searchedText)
-            );
-          })
-          .map((pokemon) => {
-            return (
-              <PokeCard
-                name={pokemon.name}
-                types={pokemon.types}
-                key={pokemon.id}
-                id={pokemon.id}
-              />
-            );
-          })}
+        {flt.map((pokemon) => {
+          return (
+            <PokeCard
+              name={pokemon.name}
+              types={pokemon.types}
+              key={pokemon.id}
+              id={pokemon.id}
+            />
+          );
+        })}
       </div>
     );
   }

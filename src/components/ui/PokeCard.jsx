@@ -3,19 +3,23 @@ import PokemonType from "../pokemon/PokemonType";
 import Card from "./Card";
 import { Link } from "react-router-dom";
 import numberPadding from "../../util/NumberPadding";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 function PokeCard({ id, name, types }) {
-
   return (
     <Link to={`/pokemons/${id}`}>
       <Card className="min-w-72 bg-base-100 shadow-xl border-2 border-solid">
         <figure>
-          <img
+          <LazyLoadImage
+            alt="image-pokemon"
             src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${numberPadding(
               id
             )}.png`}
-            alt="Pokemon"
-          />
+            visibleByDefault={false}
+            delayMethod={"debounce"}
+            effect="blur"
+          ></LazyLoadImage>
         </figure>
 
         <div className="card-body">
